@@ -14,3 +14,13 @@ data/raw/**
 data/processed/*
 !data/processed/.gitkeep
 *.log
+# Secretos y copias de seguridad: nunca se versionan
+.env.*
+!.env.example
+!**/.env.example
+*.dump
+*.pem
+*.key
+*.p12
+.DS_Store
+.impeccable/

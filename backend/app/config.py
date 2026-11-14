@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=(ROOT / '.env', ROOT / 'backend/.env'), extra='ignore')
-    database_url: str = 'postgresql+psycopg://tunari:tunari_local@localhost:5432/tunari'
+    database_url: str = 'postgresql+psycopg://tunari@localhost:5432/tunari'  # la contraseña va en DATABASE_URL (.env), nunca en el código
     database_enabled: bool = True
     live_monitoring_enabled: bool = True
     gamc_wms_key: SecretStr = SecretStr('')
