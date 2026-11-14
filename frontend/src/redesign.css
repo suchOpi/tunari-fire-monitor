@@ -4,7 +4,7 @@ body { background: var(--bg); }
 html { scroll-padding-top: 24px; }
 button, select, input { border-radius: 8px; background: #f7f9f5; }
 button, a, summary, select { touch-action: manipulation; }
-button, a { transition: background-color .16s, border-color .16s, color .16s; }
+button, a { transition: background-color .16s var(--ease-out), border-color .16s var(--ease-out), color .16s var(--ease-out), transform .16s var(--ease-out); }
 button:hover:not(:disabled) { border-color: #8baca3; }
 button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
   outline: 3px solid #00aaa9;

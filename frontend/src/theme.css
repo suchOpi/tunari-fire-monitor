@@ -177,3 +177,14 @@ button:active:not(:disabled), .district-card:active { transform: translateY(1px)
 }
 /* The park name stays available in its popup; the on-map label collides with the map caption on phones. */
 @media (max-width: 640px) { .park-label { display: none; } }
+.app { min-height: 100vh; min-height: 100dvh; }
+/* Hover physics: a 1px lift with an accent-tinted shadow; pressed state returns to rest. */
+.district-card, .alert-card { transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out), background-color .16s var(--ease-out), border-color .16s var(--ease-out); }
+.district-card:hover:not(:active), .alert-card:hover:not(:active) { transform: translateY(-1px); box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--accent) 45%, transparent); }
+/* Scroll-linked entry for report panels. Pure CSS; content stays visible (opacity floor .55) and nothing runs under reduced motion. */
+@keyframes panel-enter { from { opacity: .55; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .report-chart, .report-calendar, .report-metrics > div, .ai-analysis { animation: panel-enter linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+  }
+}

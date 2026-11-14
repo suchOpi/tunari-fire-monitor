@@ -13,6 +13,7 @@
   --ui: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-display: Manrope, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   font-family: var(--font-body);
   font-synthesis: none;
   color: var(--ink);
