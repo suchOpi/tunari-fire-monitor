@@ -92,7 +92,7 @@ label { color: #536c66; font-size: 11px; }
 .boundary-toggles { gap: 12px; }
 .boundary-toggles label { font-size: 11px; color: #334f46; gap: 9px; }
 .boundary-toggles input { width: 15px; height: 15px; accent-color: #147d72; flex-shrink: 0; }
-.district-note { color: #687c73; font-size: 11px; line-height: 1.65; margin: 11px 0; }
+.district-note { color: var(--muted); font-size: 11px; line-height: 1.65; margin: 11px 0; }
 .boundary-illustrations { color: #536f64; margin: 13px 0; font-size: 11px; }
 .boundary-illustrations summary { padding: 5px 0; }
 .district-all { background: #f2f6f0; color: #335c4d; font-size: 11px; border-radius: 7px; padding: 10px; }
