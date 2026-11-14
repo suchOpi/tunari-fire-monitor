@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useFiltros } from '../context/FiltrosContext';
 import { cargarDetalleDistrito } from '../api/client';
 import { DISTRITOS } from '../utils/constantes';
+import { areaKm2 } from '../utils/formatters';
 import Icon from './Icon';
 
 export default function PanelDistritos() {
@@ -46,12 +47,12 @@ export default function PanelDistritos() {
     {filtros.distrito && <article className="district-detail" aria-live="polite">
       <h3>Detalle del distrito {filtros.distrito}</h3>
       {!detalle ? <p>{error || 'Consultando detalle…'}</p> : <>
-        <dl><div><dt>Área del polígono</dt><dd>{detalle.properties.area_km2.toFixed(1)} km²</dd></div>
+        <dl><div><dt>Área del polígono</dt><dd>{areaKm2(detalle.properties.area_km2)}</dd></div>
           <div><dt>Población aproximada</dt><dd>{detalle.properties.poblacion_aproximada ?? 'Sin dato'}</dd></div>
           <div><dt>Alertas activas</dt><dd>{detalle.properties.alertas_activas ?? 'Sin dato'}</dd></div>
-          <div><dt>FRP promedio</dt><dd>{stats.mediciones_frp ? `${stats.frp_promedio.toFixed(2)} MW` : 'Sin dato'}</dd></div>
-          <div><dt>Sensores</dt><dd>{stats.sensores.join(', ') || 'Sin registros'}</dd></div></dl>
-        {stats.eventos_por_anio.length ? <ul className="district-years">{stats.eventos_por_anio.map((y) => <li key={y.anio}>{y.anio}: {y.eventos} eventos</li>)}</ul> : <p>Sin eventos históricos registrados.</p>}
+          <div><dt>FRP promedio</dt><dd>{stats?.mediciones_frp && stats.frp_promedio != null ? `${stats.frp_promedio.toFixed(2)} MW` : 'Sin dato'}</dd></div>
+          <div><dt>Sensores</dt><dd>{stats?.sensores?.join(', ') || 'Sin registros'}</dd></div></dl>
+        {stats?.eventos_por_anio?.length ? <ul className="district-years">{stats.eventos_por_anio.map((y) => <li key={y.anio}>{y.anio}: {y.eventos} eventos</li>)}</ul> : <p>Sin eventos históricos registrados.</p>}
         {!detalle.properties.verificada && <p>El área corresponde al esquema local. Los registros sin distrito verificado no se asignan a este límite.</p>}
       </>}
     </article>}

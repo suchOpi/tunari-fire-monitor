@@ -4,7 +4,7 @@ import 'leaflet.heat';
 import { useFiltros } from '../context/FiltrosContext';
 import { useEventos } from '../hooks/useEventos';
 import { CAPAS, CENTRO, BBOX_CERCADO, NIVELES, SENSORES, ETIQUETAS } from '../utils/constantes';
-import { fecha, distritoLabel, frp } from '../utils/formatters';
+import { fecha, distritoLabel, frp, areaKm2 } from '../utils/formatters';
 import { consultarTerritorio } from '../api/client';
 import Icon, { createIconElement } from './Icon';
 
@@ -59,7 +59,7 @@ export default function Mapa() {
     const layers = [];
     for (const [flag, key] of Object.entries(GAMC_LAYERS)) {
       if (!capas[flag]) continue;
-      if (geografia.territorio.cartografia?.capas.some((c) => c.capa === key)) continue;
+      if (geografia.territorio.cartografia?.capas?.some((c) => c.capa === key)) continue;
       const layer = L.tileLayer.wms('/api/gamc/wms', { capa: key, layers: '', format: 'image/png',
         transparent: true, version: '1.1.1', maxZoom: 19, opacity: key === 'distritos' ? 0.65 : 0.45,
         attribution: '<a href="https://recursosgamc.cochabamba.bo/api-doc">GAMC</a>',
@@ -124,7 +124,7 @@ export default function Mapa() {
       pane: 'limites', bubblingMouseEvents: false, style: selectedStyle,
       onEachFeature: (feature, layer) => {
         const p = feature.properties;
-        layer.bindPopup(popup(p.nombre, [['Área del polígono', `${p.area_km2.toFixed(1)} km²`], ['Alertas activas', p.alertas_activas], ['Eventos históricos', p.eventos_historicos], ['Límite', p.verificada ? 'Verificado' : 'Ilustrativo / no oficial']], 'map'));
+        layer.bindPopup(popup(p.nombre, [['Área del polígono', areaKm2(p.area_km2)], ['Alertas activas', p.alertas_activas], ['Eventos históricos', p.eventos_historicos], ['Límite', p.verificada ? 'Verificado' : 'Ilustrativo / no oficial']], 'map'));
         layer.on('mouseover', () => layer.setStyle({ ...selectedStyle(feature), weight: 2, fillOpacity: 0.3 }));
         layer.on('mouseout', () => layer.setStyle(selectedStyle(feature)));
       },
@@ -133,7 +133,7 @@ export default function Mapa() {
       pane: 'limites', bubblingMouseEvents: false, style: PNT_STYLE,
       onEachFeature: (feature, layer) => {
         const p = feature.properties;
-        layer.bindPopup(popup(p.nombre, [['Área del polígono', `${p.area_km2.toFixed(1)} km²`], ['Distritos que cruza', p.distritos_que_cruza], ['Alertas activas', p.alertas_activas], ['Límite', p.verificada ? 'Verificado' : 'Ilustrativo / no oficial']], 'tree'));
+        layer.bindPopup(popup(p.nombre, [['Área del polígono', areaKm2(p.area_km2)], ['Distritos que cruza', p.distritos_que_cruza], ['Alertas activas', p.alertas_activas], ['Límite', p.verificada ? 'Verificado' : 'Ilustrativo / no oficial']], 'tree'));
       },
     });
     return () => {

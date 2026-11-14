@@ -9,7 +9,7 @@ export default function ThemeToggle() {
   useLayoutEffect(() => {
     const theme = dark ? 'dark' : 'light';
     document.documentElement.dataset.theme = theme;
-    try { localStorage.setItem('tunari-theme', theme); } catch {                                                            }
+    try { localStorage.setItem('tunari-theme', theme); } catch { /* localStorage no disponible: el tema solo dura esta sesión */ }
   }, [dark]);
   return <button className="theme-toggle" aria-label="Vista oscura" aria-pressed={dark} title={dark ? 'Activar vista clara' : 'Activar vista oscura'} onClick={() => setDark(value => !value)}><Icon name={dark ? 'sun' : 'moon'} /><span>{dark ? 'Vista clara' : 'Vista oscura'}</span></button>;
 }
