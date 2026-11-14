@@ -26,7 +26,7 @@ Regla: el color significa estado (nivel de alerta, frescura de la fuente), no de
 
 ## 3. Typography Rules
 
-- **Titulares:** Manrope (`--font-display`), pesos 500–800, tracking ligeramente negativo.
+- **Titulares:** Satoshi (`--font-display`, autoalojada en `frontend/public/fonts`, pesos 500 y 700; Manrope queda como respaldo), tracking ligeramente negativo. Licencia: Fontshare (Indian Type Foundry), de uso gratuito.
 - **Cuerpo e interfaz:** DM Sans (`--font-body`); `--ui` (Segoe UI / system-ui) en etiquetas y datos.
 - **Mono:** `--mono` (ui-monospace) para metadatos.
 - **Cifras:** `font-variant-numeric: tabular-nums` en KPIs y métricas.
