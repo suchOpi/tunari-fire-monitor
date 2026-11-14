@@ -188,3 +188,5 @@ button:active:not(:disabled), .district-card:active { transform: translateY(1px)
     .report-chart, .report-calendar, .report-metrics > div, .ai-analysis { animation: panel-enter linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
   }
 }
+.report-detail li a { display: inline-block; padding: 6px 0; }
+@media (max-width: 900px) { .report-detail li a { padding: 13px 0; } }

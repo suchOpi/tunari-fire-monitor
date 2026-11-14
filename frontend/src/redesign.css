@@ -176,13 +176,13 @@ label { color: #536c66; font-size: 11px; }
 .report-metrics>div { padding: 22px; background: #fafcf7; border-color: #d3dfd0; border-radius: 12px; }
 .report-metrics>div:nth-child(3) { background: #e2ebe0; border-color: #b9cdb6; }
 .report-metrics strong { color: #264b34; font: 500 35px/1.2 Manrope,sans-serif; letter-spacing: -1.3px; font-variant-numeric: tabular-nums; }
-.report-metrics span { font-size: 11px; color: #61755f; margin-top: 9px; }
+.report-metrics span { font-size: 11px; color: var(--muted); margin-top: 9px; }
 .report-summary { font-size: 12px; line-height: 1.85; color: var(--muted); max-width: 1100px; margin-top: 16px; }
 .report-status { color: var(--muted); font-size: 12px; }
 .report-charts { grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0; }
 .report-chart,.report-calendar { padding: 22px; border-color: #d6dfd1; border-radius: 13px; background: #fffefa; }
 .report-charts figcaption { margin: 0 0 16px; color: #284833; font-size: 14px; }
-.report-charts figcaption small { font-family: var(--ui); font-size: 11px; color: #71816a; margin-top: 7px; }
+.report-charts figcaption small { font-family: var(--ui); font-size: 11px; color: var(--muted); margin-top: 7px; }
 .report-chart svg text { font-family: var(--ui); fill: #61795f; font-size: 11px; }
 .report-chart svg line { stroke: #d9e3d3; }
 .report-chart:nth-child(1) svg rect { fill: #766598; }

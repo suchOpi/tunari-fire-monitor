@@ -33,4 +33,5 @@ html[data-theme=dark] {
   --ink: #e5efea;
   --calendar-ink: #e8f3ef;
   --calendar-missing: #34454a;
+  --cell-scale: .37;
 }
