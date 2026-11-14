@@ -5,7 +5,7 @@ import { useFiltros } from '../context/FiltrosContext';
 import { useEventos } from '../hooks/useEventos';
 import { CAPAS, CENTRO, BBOX_CERCADO, NIVELES, SENSORES, ETIQUETAS } from '../utils/constantes';
 import { fecha, distritoLabel, frp, areaKm2 } from '../utils/formatters';
-import { consultarTerritorio } from '../api/client';
+import { consultarTerritorio, BASE } from '../api/client';
 import Icon, { createIconElement } from './Icon';
 
 const CARTO_KEY = import.meta.env.VITE_CARTO_API_KEY || '';
@@ -60,7 +60,7 @@ export default function Mapa() {
     for (const [flag, key] of Object.entries(GAMC_LAYERS)) {
       if (!capas[flag]) continue;
       if (geografia.territorio.cartografia?.capas?.some((c) => c.capa === key)) continue;
-      const layer = L.tileLayer.wms('/api/gamc/wms', { capa: key, layers: '', format: 'image/png',
+      const layer = L.tileLayer.wms(`${BASE}/gamc/wms`, { capa: key, layers: '', format: 'image/png',
         transparent: true, version: '1.1.1', maxZoom: 19, opacity: key === 'distritos' ? 0.65 : 0.45,
         attribution: '<a href="https://recursosgamc.cochabamba.bo/api-doc">GAMC</a>',
       });

@@ -1,4 +1,4 @@
-const BASE = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
+export const BASE = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 
 const TOKEN_KEY = 'tunari-token';
 export const leerToken = () => { try { return sessionStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; } };

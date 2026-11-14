@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 const names = ['tunari.geojson', 'distritos_cochabamba.geojson'];
 const readGeo = (name) => readFileSync(fileURLToPath(new URL(`../data/geo/${name}`, import.meta.url)));
 export default defineConfig({
+  base: process.env.VITE_BASE || '/',
   plugins: [react(), {
     name: 'shared-geometries',
     configureServer(server) {
