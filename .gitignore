@@ -1,0 +1,16 @@
+.env
+backend/.env
+frontend/.env
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+**/node_modules/
+frontend/dist/
+data/raw/**
+!data/raw/.gitkeep
+!data/raw/firms_modis/
+!data/raw/firms_viirs/
+!data/raw/**/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.log

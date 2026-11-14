@@ -1,0 +1,580 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "demo": true,
+    "crs": "EPSG:4326",
+    "aviso": "Sustituir por cartografía oficial antes de uso operativo. No usar estas geometrías para alertas."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:13",
+        "nombre": "Distrito 13 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 13,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.235,
+              -17.345
+            ],
+            [
+              -66.205,
+              -17.345
+            ],
+            [
+              -66.205,
+              -17.375
+            ],
+            [
+              -66.235,
+              -17.375
+            ],
+            [
+              -66.235,
+              -17.345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:2",
+        "nombre": "Distrito 2 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 2,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.205,
+              -17.345
+            ],
+            [
+              -66.175,
+              -17.345
+            ],
+            [
+              -66.175,
+              -17.375
+            ],
+            [
+              -66.205,
+              -17.375
+            ],
+            [
+              -66.205,
+              -17.345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:1",
+        "nombre": "Distrito 1 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 1,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.175,
+              -17.345
+            ],
+            [
+              -66.145,
+              -17.345
+            ],
+            [
+              -66.145,
+              -17.375
+            ],
+            [
+              -66.175,
+              -17.375
+            ],
+            [
+              -66.175,
+              -17.345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:12",
+        "nombre": "Distrito 12 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 12,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.145,
+              -17.345
+            ],
+            [
+              -66.115,
+              -17.345
+            ],
+            [
+              -66.115,
+              -17.375
+            ],
+            [
+              -66.145,
+              -17.375
+            ],
+            [
+              -66.145,
+              -17.345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:3",
+        "nombre": "Distrito 3 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 3,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.115,
+              -17.345
+            ],
+            [
+              -66.085,
+              -17.345
+            ],
+            [
+              -66.085,
+              -17.375
+            ],
+            [
+              -66.115,
+              -17.375
+            ],
+            [
+              -66.115,
+              -17.345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:4",
+        "nombre": "Distrito 4 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 4,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.235,
+              -17.375
+            ],
+            [
+              -66.205,
+              -17.375
+            ],
+            [
+              -66.205,
+              -17.415
+            ],
+            [
+              -66.235,
+              -17.415
+            ],
+            [
+              -66.235,
+              -17.375
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:11",
+        "nombre": "Distrito 11 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 11,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.205,
+              -17.375
+            ],
+            [
+              -66.175,
+              -17.375
+            ],
+            [
+              -66.175,
+              -17.415
+            ],
+            [
+              -66.205,
+              -17.415
+            ],
+            [
+              -66.205,
+              -17.375
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:10",
+        "nombre": "Distrito 10 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 10,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.175,
+              -17.375
+            ],
+            [
+              -66.145,
+              -17.375
+            ],
+            [
+              -66.145,
+              -17.415
+            ],
+            [
+              -66.175,
+              -17.415
+            ],
+            [
+              -66.175,
+              -17.375
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:5",
+        "nombre": "Distrito 5 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 5,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.145,
+              -17.375
+            ],
+            [
+              -66.115,
+              -17.375
+            ],
+            [
+              -66.115,
+              -17.415
+            ],
+            [
+              -66.145,
+              -17.415
+            ],
+            [
+              -66.145,
+              -17.375
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:6",
+        "nombre": "Distrito 6 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 6,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.115,
+              -17.375
+            ],
+            [
+              -66.085,
+              -17.375
+            ],
+            [
+              -66.085,
+              -17.415
+            ],
+            [
+              -66.115,
+              -17.415
+            ],
+            [
+              -66.115,
+              -17.375
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:8",
+        "nombre": "Distrito 8 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 8,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.235,
+              -17.415
+            ],
+            [
+              -66.205,
+              -17.415
+            ],
+            [
+              -66.205,
+              -17.465
+            ],
+            [
+              -66.235,
+              -17.465
+            ],
+            [
+              -66.235,
+              -17.415
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:9",
+        "nombre": "Distrito 9 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 9,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.205,
+              -17.415
+            ],
+            [
+              -66.175,
+              -17.415
+            ],
+            [
+              -66.175,
+              -17.465
+            ],
+            [
+              -66.205,
+              -17.465
+            ],
+            [
+              -66.205,
+              -17.415
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:15",
+        "nombre": "Distrito 15 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 15,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.175,
+              -17.415
+            ],
+            [
+              -66.145,
+              -17.415
+            ],
+            [
+              -66.145,
+              -17.465
+            ],
+            [
+              -66.175,
+              -17.465
+            ],
+            [
+              -66.175,
+              -17.415
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:14",
+        "nombre": "Distrito 14 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 14,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.145,
+              -17.415
+            ],
+            [
+              -66.115,
+              -17.415
+            ],
+            [
+              -66.115,
+              -17.465
+            ],
+            [
+              -66.145,
+              -17.465
+            ],
+            [
+              -66.145,
+              -17.415
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "distrito:7",
+        "nombre": "Distrito 7 · posición ilustrativa",
+        "clase": "distrito",
+        "distrito": 7,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.115,
+              -17.415
+            ],
+            [
+              -66.085,
+              -17.415
+            ],
+            [
+              -66.085,
+              -17.465
+            ],
+            [
+              -66.115,
+              -17.465
+            ],
+            [
+              -66.115,
+              -17.415
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

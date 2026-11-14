@@ -1,0 +1,84 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "demo": true,
+    "crs": "EPSG:4326",
+    "aviso": "Sustituir por cartografía oficial antes de uso operativo. No usar estas geometrías para alertas."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tunari:demo",
+        "nombre": "Parque Nacional Tunari · esquema ilustrativo",
+        "clase": "tunari",
+        "distrito": null,
+        "demo": true,
+        "fuente": "Geometría sintética para demostración; no representa un límite oficial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.43,
+              -17.3
+            ],
+            [
+              -66.395,
+              -17.255
+            ],
+            [
+              -66.32,
+              -17.235
+            ],
+            [
+              -66.255,
+              -17.215
+            ],
+            [
+              -66.17,
+              -17.222
+            ],
+            [
+              -66.09,
+              -17.25
+            ],
+            [
+              -66.025,
+              -17.285
+            ],
+            [
+              -66.047,
+              -17.326
+            ],
+            [
+              -66.11,
+              -17.338
+            ],
+            [
+              -66.17,
+              -17.345
+            ],
+            [
+              -66.22,
+              -17.347
+            ],
+            [
+              -66.28,
+              -17.327
+            ],
+            [
+              -66.35,
+              -17.318
+            ],
+            [
+              -66.43,
+              -17.3
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

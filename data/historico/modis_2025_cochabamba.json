@@ -1,0 +1,10 @@
+{
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2025/modis_2025_Bolivia.csv",
+  "catalogo": "https://firms.modaps.eosdis.nasa.gov/data/country/yearly_summary_files.txt",
+  "bbox": "-66.5,-17.6,-65.8,-17.1",
+  "sha256_csv_local": "afe448bc6b33a73e74d6d4fa8e8ca1c4da77f65d59c91fc63be70783f91cb41f",
+  "filas_pais": 37623,
+  "filas_bbox": 45,
+  "bytes_descargados": 3059709,
+  "cobertura": "Archivo anual MODIS; no implica ausencia de fuego ni cobertura VIIRS."
+}

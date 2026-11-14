@@ -1,0 +1,33 @@
+{
+  "proveedor": "GAMC",
+  "documentacion": "https://recursosgamc.cochabamba.bo/api-doc",
+  "endpoint": "https://serviciosgamc.cochabamba.bo/api/gs/wms",
+  "consulta": {
+    "REQUEST": "GetMap",
+    "SRS": "EPSG:4326",
+    "BBOX": [
+      -66.3,
+      -17.55,
+      -66.05,
+      -17.25
+    ],
+    "WIDTH": 512,
+    "HEIGHT": 512
+  },
+  "capturada": "2026-11-11T01:01:04+00:00",
+  "nota": "Imágenes originales PNG recibidas con HTTP 200. Caché cartográfica, no polígonos vectoriales ni clasificación distrital.",
+  "capas": [
+    {
+      "capa": "periurbanos",
+      "archivo": "periurbanos.png",
+      "service_id": "c52066a1-32fd-4925-81e0-c2dcb8f4238f",
+      "sha256": "1c11398fdbc6ba602f58693cb5d97d47d3bc38655d9c631f78c51a6a5623b443"
+    },
+    {
+      "capa": "distritos",
+      "archivo": "distritos.png",
+      "service_id": "7eb13092-bf0e-493b-aae6-03c43eedda2c",
+      "sha256": "11c9dc28eda7c73b3a3269371e94cd48186e97817d09be38e8ecefbdd09943fe"
+    }
+  ]
+}

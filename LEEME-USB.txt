@@ -1,0 +1,5 @@
+Esta carpeta contiene la aplicación, sus dependencias locales, configuración y datos de archivos.
+respaldo-db.dump contiene el respaldo PostgreSQL/PostGIS. Para trasladarlo a otro equipo, restaurarlo con pg_restore en una base vacía.
+Para iniciar la aplicación, seguir README.md. El entorno Python puede requerir recreación si cambia la ruta de instalación de Python.
+La tarea programada del equipo original no se modifica por esta copia; su activación está documentada en README.md.
+Se excluyeron únicamente cachés regenerables de Python/pruebas y metadatos Git.
