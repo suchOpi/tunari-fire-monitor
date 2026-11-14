@@ -28,7 +28,7 @@ export default function PanelDistritos() {
       <label><input type="checkbox" checked={capas.gamcDistritos} onChange={(e) => setCapas(c => ({...c, gamcDistritos:e.target.checked}))} />Mostrar Cercado y distritos · GAMC</label>
       <label><input type="checkbox" checked={capas.periurbanos} onChange={(e) => setCapas(c => ({...c, periurbanos:e.target.checked}))} />Mostrar periurbanos · GAMC</label>
     </div>
-    {geografia.territorio?.cartografia.disponible && <p className="district-note">Cartografía GAMC guardada · {new Date(geografia.territorio.cartografia.capturada).toLocaleDateString('es-BO')}</p>}
+    {geografia.territorio?.cartografia?.disponible && <p className="district-note">Cartografía GAMC guardada · {new Date(geografia.territorio.cartografia.capturada).toLocaleDateString('es-BO')}</p>}
     <details className="boundary-illustrations"><summary><Icon name="layers" size={15} />Esquemas de referencia</summary><div className="boundary-toggles">
       <label><input type="checkbox" checked={mostrarDistritos} onChange={(e) => setMostrarDistritos(e.target.checked)} />Mostrar límites de distritos ilustrativos</label>
       <label><input type="checkbox" checked={mostrarPNT} onChange={(e) => setMostrarPNT(e.target.checked)} />Mostrar Parque Nacional Tunari ilustrativo</label>

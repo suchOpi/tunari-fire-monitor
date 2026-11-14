@@ -197,7 +197,7 @@ export default function Mapa() {
   const illustrative = Object.values(geografia).some((g) => g?.features.some((f) => f.properties.ilustrativa));
   return <section className="map-shell" id="territorio" aria-label="Mapa de observación de Cochabamba">
     <div className="leaflet-canvas" ref={element} />
-    <div className="map-toolbar"><div className="map-chip"><span className="live-dot" />Vista territorial <span className="divider">/</span><span>{loading ? 'Actualizando…' : !data ? 'Sin datos' : `${detecciones.length} señales`}</span></div>
+    <div className="map-toolbar"><div className="map-chip"><span className="live-dot" />Vista territorial <span className="divider" aria-hidden="true">/</span><span>{loading ? 'Actualizando…' : !data ? 'Sin datos' : `${detecciones.length} señales`}</span></div>
       <div className="layer-wrapper"><button className={`map-button ${layerMenu ? 'active' : ''}`} onClick={() => setLayerMenu(!layerMenu)} aria-expanded={layerMenu}><Icon name="layers" size={16} />Capas <Icon name="chevron" size={14} /></button>
         {layerMenu && <div className="layer-menu"><h3>Capas del mapa</h3>{Object.entries(CAPAS).map(([key, name]) => <label key={key}><input type="checkbox" checked={key === 'distritos' ? mostrarDistritos : key === 'tunari' ? mostrarPNT : capas[key]} onChange={(e) => key === 'distritos' ? setMostrarDistritos(e.target.checked) : key === 'tunari' ? setMostrarPNT(e.target.checked) : setCapas((c) => ({ ...c, [key]: e.target.checked }))} /><span>{name}</span></label>)}</div>}
       </div>
@@ -212,7 +212,7 @@ export default function Mapa() {
     </div>
     <div className="map-notices" aria-live="polite">
       {illustrative && (mostrarDistritos || mostrarPNT) && <span>Esquemas vectoriales ilustrativos · No oficiales</span>}
-      {geografia.territorio?.cartografia.disponible && <span>Cartografía GAMC guardada · {new Date(geografia.territorio.cartografia.capturada).toLocaleDateString('es-BO')} · sin descarga al mover el mapa</span>}
+      {geografia.territorio?.cartografia?.disponible && <span>Cartografía GAMC guardada · {new Date(geografia.territorio.cartografia.capturada).toLocaleDateString('es-BO')} · sin descarga al mover el mapa</span>}
       {gamcErrors.length > 0 && <span>Capas GAMC con errores: {gamcErrors.join(', ')}</span>}
       {data?.capas?.disponible === false && <span>GAMC en línea no disponible · Focos: NASA FIRMS</span>}
       {data?.estado === 'ok' && !detecciones.length && <span>Sin detecciones en el período consultado. No confirma ausencia de fuego.</span>}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { FiltrosProvider } from './context/FiltrosContext';
 import 'leaflet/dist/leaflet.css';
+import './tokens.css';
 import './index.css';
 import './redesign.css';
 import './theme.css';

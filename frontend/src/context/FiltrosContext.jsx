@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { cargarDatos, cargarLimites } from '../api/client';
 
 const Context = createContext(null);
@@ -41,6 +41,8 @@ export function FiltrosProvider({ children }) {
     const timer = setInterval(refrescar, 60000);
     return () => { revision.current++; clearInterval(timer); };
   }, [refrescar]);
-  return <Context.Provider value={{ filtros, setFiltros, capas, setCapas, mostrarDistritos, setMostrarDistritos, mostrarPNT, setMostrarPNT, geografia, errorGeografia, cargarGeografia, data, loading, error, refrescar, seleccion, setSeleccion }}>{children}</Context.Provider>;
+  const value = useMemo(() => ({ filtros, setFiltros, capas, setCapas, mostrarDistritos, setMostrarDistritos, mostrarPNT, setMostrarPNT, geografia, errorGeografia, cargarGeografia, data, loading, error, refrescar, seleccion, setSeleccion }),
+    [filtros, capas, mostrarDistritos, mostrarPNT, geografia, errorGeografia, cargarGeografia, data, loading, error, refrescar, seleccion]);
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 export function useFiltros() { return useContext(Context); }

@@ -1,0 +1,35 @@
+/* Design tokens: single source for palette, typography and theme variants. */
+:root {
+  --bg: #f0f2ee;
+  --panel: #ffffff;
+  --line: #d9e1dc;
+  --muted: #566863;
+  --accent: #087f80;
+  --green: #3c744c;
+  --orange: #a45c34;
+  --red: #b54842;
+  --ink: #183138;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --ui: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: Manrope, sans-serif;
+  font-family: var(--font-body);
+  font-synthesis: none;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+html[data-theme=dark] {
+  color-scheme: dark;
+  --bg: #0d1b21;
+  --panel: #152a31;
+  --line: #354c50;
+  --muted: #a9bfba;
+  --accent: #75d7c4;
+  --green: #acd29d;
+  --orange: #e4b089;
+  --red: #eeaaa1;
+  --ink: #e5efea;
+  --calendar-ink: #e8f3ef;
+  --calendar-missing: #34454a;
+}
