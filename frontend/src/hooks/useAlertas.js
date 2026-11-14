@@ -9,7 +9,11 @@ export function useAlertas() {
   async function cambiar(id, state, confirm = false) {
     setError(''); setSaving(true);
     try { await actualizarAlerta(id, state, data.demo, confirm); await refrescar(); }
-    catch { setError('No se pudo guardar el cambio. La alerta conserva su estado anterior.'); }
+    catch (e) {
+      setError(e.message === 'API 401' ? 'Token de operador inválido o ausente. La alerta conserva su estado anterior.'
+        : e.message === 'API 503' ? 'La escritura está deshabilitada o la base de datos no está disponible. La alerta conserva su estado anterior.'
+        : 'No se pudo guardar el cambio. La alerta conserva su estado anterior.');
+    }
     finally { setSaving(false); }
   }
   return { alertas: data?.alertas || [], cambiar, error, saving, loading };

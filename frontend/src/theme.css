@@ -172,7 +172,7 @@ html[data-theme=dark] .intro-kicker { color: #b2cebc; }
 .text-button, .app-footer a, summary { min-height: 28px; }
 button:active:not(:disabled), .district-card:active { transform: translateY(1px); }
 @media (max-width: 900px) {
-  .theme-toggle, .map-button, .district-all, select, input[type=date], .text-button, .app-footer a, summary, .report-controls button, .confirm-button, .report-actions a, .report-actions button, .ai-empty button, .alert-focus { min-height: 44px; }
+  .theme-toggle, .map-button, .district-all, select, input[type=date], .text-button, .app-footer a, summary, .report-controls button, .confirm-button, .report-actions a, .report-actions button, .ai-empty button, .alert-focus, .alert-actions input { min-height: 44px; }
   .theme-toggle, .reset-map { min-width: 44px; min-height: 44px; }
 }
 /* The park name stays available in its popup; the on-map label collides with the map caption on phones. */
@@ -194,3 +194,4 @@ button:active:not(:disabled), .district-card:active { transform: translateY(1px)
 .error-boundary h1 { font-size: 26px; }
 .error-boundary p { color: var(--muted); line-height: 1.6; }
 .error-boundary button { min-height: 44px; padding: 0 18px; font-weight: 600; }
+.alert-actions input { width: 100%; min-width: 0; }

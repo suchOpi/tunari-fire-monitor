@@ -1,5 +1,9 @@
 const BASE = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 
+const TOKEN_KEY = 'tunari-token';
+export const leerToken = () => { try { return sessionStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; } };
+export const guardarToken = (value) => { try { sessionStorage.setItem(TOKEN_KEY, value); } catch { /* sin almacenamiento: el token solo vive en el campo */ } };
+
 async function request(path, options = {}) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 60000);
@@ -21,7 +25,7 @@ export async function cargarDatos(filters) {
 export async function actualizarAlerta(id, state, demo, confirm = false) {
   if (demo) throw new Error('El modo simulado está deshabilitado');
   return request(`/alertas/${id}${confirm ? '/confirmar' : ''}`, {
-    method: confirm ? 'POST' : 'PATCH', ...(confirm ? {} : { body: JSON.stringify({ estado: state }) }),
+    method: confirm ? 'POST' : 'PATCH', headers: { 'X-API-Token': leerToken() }, ...(confirm ? {} : { body: JSON.stringify({ estado: state }) }),
   });
 }
 
