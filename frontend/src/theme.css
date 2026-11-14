@@ -59,7 +59,7 @@ html[data-theme=dark] .district-alert-count { color: #b9ceb8; background: #30423
 html[data-theme=dark] .district-alert-count.has-alerts { background: #653a39; color: #f3c4bd; }
 html[data-theme=dark] .district-detail { background: #203b36; color: #c1d2bf; }
 html[data-theme=dark] :is(.district-detail h3,.district-detail dd,.sidebar-foot strong) { color: #e0edda; }
-html[data-theme=dark] .alert-card { background: #193037; border-color: #40554b; border-left-color: var(--level); }
+html[data-theme=dark] .alert-card { background: #193037; border-color: #40554b; border-color: color-mix(in srgb, var(--level) 38%, #40554b); }
 html[data-theme=dark] .alert-card.selected { background: #22463c; }
 html[data-theme=dark] :is(.alert-card p,.alert-bottom>span) { color: #b3c6b7; }
 html[data-theme=dark] .alert-focus strong { color: #e1ecde; }
@@ -151,7 +151,7 @@ html[data-theme=dark] .refresh-button:hover:not(:disabled) { background: #31584b
 @media (prefers-reduced-motion: reduce) { .refresh-button[aria-busy=true] .ui-icon { animation: none; } }
 
 .report-controls { grid-template-columns: 110px 130px minmax(190px,330px) minmax(150px,200px) auto; }
-.report-current { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; margin: 0 0 18px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; background: var(--panel); }
+.report-current { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; margin: 0 0 18px; border: 1px solid var(--line); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); border-radius: 8px; background: var(--panel); }
 .report-current>.ui-icon { margin-top: 2px; flex-shrink: 0; color: var(--accent); }
 .report-current>div { display: grid; gap: 5px; }
 .report-current strong { font-size: 12px; font-weight: 600; }
@@ -172,7 +172,7 @@ html[data-theme=dark] .intro-kicker { color: #b2cebc; }
 .text-button, .app-footer a, summary { min-height: 28px; }
 button:active:not(:disabled), .district-card:active { transform: translateY(1px); }
 @media (max-width: 900px) {
-  .theme-toggle, .map-button, .district-all, select, input[type=date], .text-button, .app-footer a, summary, .report-controls button, .confirm-button, .report-actions a, .report-actions button, .ai-empty button { min-height: 44px; }
+  .theme-toggle, .map-button, .district-all, select, input[type=date], .text-button, .app-footer a, summary, .report-controls button, .confirm-button, .report-actions a, .report-actions button, .ai-empty button, .alert-focus { min-height: 44px; }
   .theme-toggle, .reset-map { min-width: 44px; min-height: 44px; }
 }
 /* The park name stays available in its popup; the on-map label collides with the map caption on phones. */

@@ -110,7 +110,7 @@ label { color: #536c66; font-size: 11px; }
 .district-detail dd { color: #294f39; }
 .alerts { order: initial; padding: 0; background: transparent; }
 .empty,.error { padding: 0; font-size: 11px; line-height: 1.75; }
-.alert-card { background: #fff; border-color: #dbe3d9; border-left-color: var(--level); padding: 13px; }
+.alert-card { background: #fff; border-color: #dbe3d9; border-color: color-mix(in srgb, var(--level) 38%, #dbe3d9); padding: 13px; }
 .alert-card.selected { background: #e6f3e9; outline-color: #4b8b6c; }
 .alert-card p,.alert-bottom>span { color: #5b6e62; }
 .alert-focus strong { color: #263f31; }

@@ -10,8 +10,9 @@ const fecha = value => value ? new Intl.DateTimeFormat('es-BO',{dateStyle:'mediu
 
 function Bars({ rows, title, unit, color='#00d5db' }) {
   const max = Math.max(1, ...rows.map(r => r.value || 0)), step = 560 / Math.max(1, rows.length);
+  const summary = `${title}. ${rows.map(r => `${r.label}: ${r.value == null ? 'sin dato' : number(r.value,2)}${r.partial ? ' (cobertura parcial)' : ''}`).join('; ')}`;
   return <figure className="report-chart"><figcaption><span className="chart-title"><Icon name="chart" size={18} />{title}</span><small>{unit}</small></figcaption>
-    <svg viewBox="0 0 610 185" role="img" aria-label={title}>
+    <svg viewBox="0 0 610 185" role="img" aria-label={summary}>
       {[0,.5,1].map(f => <g key={f}><line x1="36" x2="600" y1={145-f*120} y2={145-f*120} stroke="#35515a" strokeDasharray="3 4"/><text x="31" y={149-f*120} textAnchor="end">{number(max*f,1)}</text></g>)}
       {rows.map((r,i) => <g key={r.label}><rect x={40+i*step} y={145-(r.value || 0)/max*120} width={Math.max(3,step-9)} height={r.value == null ? 0 : Math.max(r.value ? 2 : 0,r.value/max*120)} rx="2" fill={color} opacity={r.partial ? .65 : 1}><title>{r.label}: {r.value == null ? 'sin dato' : number(r.value,2)}{r.partial ? ' · cobertura parcial' : ''}</title></rect><text x={40+i*step+(step-9)/2} y="165" textAnchor="middle">{r.label}{r.partial && r.value != null ? '*' : ''}</text>{r.value == null && <text x={40+i*step+(step-9)/2} y="135" textAnchor="middle">—</text>}{r.value === 0 && <text x={40+i*step+(step-9)/2} y="135" textAnchor="middle">0</text>}</g>)}
     </svg>
@@ -21,7 +22,7 @@ function Bars({ rows, title, unit, color='#00d5db' }) {
 function Calendar({ rows }) {
   const years = [...new Set(rows.map(r=>r.mes.slice(0,4)))], max=Math.max(1,...rows.map(r=>r.eventos || 0));
   return <figure className="report-calendar"><figcaption><span className="chart-title"><Icon name="calendar" size={18} />Cuándo se registraron eventos</span><small>— sin dato o mes futuro · borde punteado: cobertura parcial</small></figcaption>
-    <div className="calendar-grid" style={{gridTemplateColumns:'42px repeat(12,minmax(0,1fr))'}}><span/>{MONTHS.map(m=><span key={m}>{m}</span>)}
+    <div className="calendar-grid" role="img" aria-label={`Eventos por mes. ${rows.map(r => `${r.mes}: ${r.eventos == null ? 'sin dato' : r.eventos}${r.cobertura === 'parcial' ? ' (cobertura parcial)' : ''}`).join('; ')}`} style={{gridTemplateColumns:'42px repeat(12,minmax(0,1fr))'}}><span/>{MONTHS.map(m=><span key={m}>{m}</span>)}
       {years.map(y=><div className="calendar-year" key={y}><strong>{y}</strong>{rows.filter(r=>r.mes.startsWith(y)).map(r=><span key={r.mes} className={`calendar-cell ${r.cobertura === 'parcial' ? 'is-partial' : ''}`} title={`${r.mes}: ${r.eventos == null ? (r.cobertura === 'futuro' ? 'mes futuro' : 'sin dato') : `${r.eventos} eventos · ${r.dias_cubiertos} días completos · cobertura ${r.cobertura}`}`} style={{'--r':r.eventos/max, color:'var(--calendar-ink, #183f39)', background:r.eventos == null ? 'var(--calendar-missing, #edf0ed)' : 'rgb(0 211 218 / calc(.08 + var(--r) * var(--cell-scale, .65)))'}}>{r.eventos ?? '—'}</span>)}</div>)}
     </div>
   </figure>;
