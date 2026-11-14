@@ -55,6 +55,7 @@ export default function PanelEstadisticas() {
   const years = Array.from({length:lastYear-1999},(_,i)=>lastYear-i);
   const ia = report?.ia;
   return <section className="history-reports" id="historico" aria-labelledby="history-title">
+    <div className="reports-layout"><aside className="reports-aside">
     <div className="reports-heading"><div><span className="eyebrow"><Icon name="history" size={18} />HISTÓRICO Y SEGUIMIENTO · NASA FIRMS</span><h2 id="history-title">Frecuencia, fechas y contexto</h2><p>Registros históricos y observaciones recientes, separados por sensor.</p></div><span className="source-badge">Sin datos simulados</span></div>
     <div className="report-controls">
       <label>Desde<select aria-label="Año histórico inicial" value={range.desde} onChange={e=>setRange(r=>({...r,desde:Number(e.target.value)}))}>{years.map(y=><option key={y}>{y}</option>)}</select></label>
@@ -62,7 +63,7 @@ export default function PanelEstadisticas() {
       <label>Área del informe<select aria-label="Área del informe" value={range.ambito} onChange={e=>setRange(r=>({...r,ambito:e.target.value}))}><option value="entorno">Cochabamba y entorno Tunari</option><option value="cercado">Cercado · extensión GAMC</option></select></label>
       <label>Sensor<select aria-label="Sensor del informe" value={range.sensor} onChange={e=>setRange(r=>({...r,sensor:e.target.value}))}>{Object.entries(SENSORS).map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label>
       <button onClick={()=>{cache.current.clear();setRevision(n=>n+1);}} disabled={loading}><Icon name="search" size={16} />Consultar</button>
-    </div>
+    </div></aside><div className="reports-main">
     {loading && <p className="report-status" role="status">Consultando registros y análisis local…</p>}
     {error && <p className="report-status" role="alert">{error}</p>}
     {report && <>
@@ -95,5 +96,6 @@ export default function PanelEstadisticas() {
       </details>
       <div className="report-actions"><a href={urlInforme(params,'csv')}><Icon name="download" size={16} />Descargar CSV mensual</a><a href={urlInforme(params,'informe')}><Icon name="file" size={16} />Descargar informe JSON</a><button onClick={()=>window.print()}><Icon name="printer" size={16} />Imprimir / guardar PDF</button></div>
     </>}
+    </div></div>
   </section>;
 }

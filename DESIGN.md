@@ -26,7 +26,7 @@ Regla: el color significa estado (nivel de alerta, frescura de la fuente), no de
 
 ## 3. Typography Rules
 
-- **Titulares:** Satoshi (`--font-display`, autoalojada en `frontend/public/fonts`, pesos 500 y 700; Manrope queda como respaldo), tracking ligeramente negativo. Licencia: Fontshare (Indian Type Foundry), de uso gratuito.
+- **Titulares:** Outfit (`--font-display`, variable 400-800, autoalojada en `frontend/public/fonts`; Manrope queda como respaldo), tracking de -0.035em en los titulares grandes. Licencia OFL (Google Fonts).
 - **Cuerpo e interfaz:** DM Sans (`--font-body`); `--ui` (Segoe UI / system-ui) en etiquetas y datos.
 - **Mono:** `--mono` (ui-monospace) para metadatos.
 - **Cifras:** `font-variant-numeric: tabular-nums` en KPIs y métricas.
@@ -70,3 +70,14 @@ Regla: el color significa estado (nivel de alerta, frescura de la fuente), no de
 - Cientos de colores hex siguen escritos a mano en `index.css`, `redesign.css` y `theme.css`; solo la paleta base está en tokens.
 - Tres hojas de estilo conviven (`index.css`, `redesign.css`, `theme.css`) y solo los tokens están unificados.
 - La etiqueta del parque sobre el mapa se oculta en móvil porque chocaba con el título del mapa.
+
+## 9. Capa visual (`frontend/src/visual.css`)
+
+Una sola hoja que reúne la presentación, usando solo los tokens existentes (la paleta no cambia):
+
+- **Navegación flotante:** barra de vidrio fija en pantallas de 900px o más, con la sección activa marcada (`aria-current=location`).
+- **Hero asimétrico:** titular de hasta 5.5rem en 2 líneas con píldoras en línea, dos botones y un disco con el logo sobre anillos.
+- **KPI en acordeón:** tres tarjetas; con puntero, la tarjeta bajo el cursor se ensancha. El texto explicativo se ve en pantallas anchas y queda disponible para lectores de pantalla en las demás.
+- **Informes con columna fija:** en 1180px o más, el título y los controles se quedan fijos (`position: sticky`) mientras se desplazan las gráficas.
+- **Marquesina de fuentes** (solo nombres reales de fuentes de datos) y **cierre** con el mensaje clave.
+- **Movimiento:** solo CSS (`transform`, `opacity`, `animation-timeline`), sin GSAP; se desactiva con `prefers-reduced-motion`.

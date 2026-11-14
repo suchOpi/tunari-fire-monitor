@@ -8,6 +8,7 @@ import './tokens.css';
 import './index.css';
 import './redesign.css';
 import './theme.css';
+import './visual.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode><ErrorBoundary><FiltrosProvider><App /></FiltrosProvider></ErrorBoundary></React.StrictMode>,

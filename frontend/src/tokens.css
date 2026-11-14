@@ -1,6 +1,5 @@
 /* Design tokens: single source for palette, typography and theme variants. */
-@font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi-500.woff2') format('woff2'); font-weight: 400 500; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi-700.woff2') format('woff2'); font-weight: 600 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-latin.woff2') format('woff2'); font-weight: 400 800; font-style: normal; font-display: swap; }
 :root {
   --bg: #f0f2ee;
   --panel: #ffffff;
@@ -14,8 +13,9 @@
   --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
   --ui: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'DM Sans', sans-serif;
-  --font-display: 'Satoshi', Manrope, sans-serif;
+  --font-display: 'Outfit', Manrope, sans-serif;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --on-accent: #ffffff;
   font-family: var(--font-body);
   font-synthesis: none;
   color: var(--ink);
@@ -36,4 +36,5 @@ html[data-theme=dark] {
   --calendar-ink: #e8f3ef;
   --calendar-missing: #34454a;
   --cell-scale: .37;
+  --on-accent: #0d1b21;
 }

@@ -1,0 +1,120 @@
+/* Capa visual: navegación flotante, hero, KPI en acordeón, informes con columna fija, marquesina y cierre.
+   Solo usa los tokens de tokens.css; no introduce colores nuevos. */
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- Navegación flotante ---------- */
+.section-nav a[aria-current=location] { background: #2b4b54; border-color: #64817d; color: #fff; box-shadow: inset 0 -2px 0 #69dfd4; }
+@media (min-width: 900px) {
+  html { scroll-padding-top: 112px; }
+  .app-header { position: sticky; top: 12px; z-index: 1100; height: 76px; width: min(1456px, calc(100% - 32px)); margin: 14px auto 0; padding: 0 22px; border: 1px solid #33515b; border-radius: 20px; background: color-mix(in srgb, #132d36 88%, transparent); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 22px 44px -26px #06161c; }
+  .brand img { width: 52px; height: 52px; }
+}
+
+/* ---------- Botones ---------- */
+.cta { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; font: 600 15px var(--ui); letter-spacing: .1px; text-decoration: none; transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out), background-color .2s var(--ease-out), border-color .2s var(--ease-out); }
+.cta:hover { transform: translateY(-2px); }
+.cta:active { transform: translateY(0) scale(.98); }
+.cta-primary { background: var(--accent); color: var(--on-accent); border: 1px solid transparent; box-shadow: 0 14px 28px -16px color-mix(in srgb, var(--accent) 75%, transparent); }
+.cta-primary:hover { box-shadow: 0 20px 34px -16px color-mix(in srgb, var(--accent) 85%, transparent); }
+.cta-secondary { background: transparent; color: var(--ink); border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); }
+.cta-secondary:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); border-color: color-mix(in srgb, var(--ink) 55%, transparent); }
+
+/* ---------- Hero ---------- */
+.overview { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(0, .72fr); column-gap: 24px; align-items: end; padding: clamp(52px, 7vw, 100px) 0 0; }
+.app { position: relative; isolation: isolate; overflow-x: clip; }
+.app::before { content: ''; position: absolute; z-index: -1; inset: 0 0 auto 0; height: 1100px; pointer-events: none; background: radial-gradient(circle 620px at 86% 14%, color-mix(in srgb, var(--accent) 17%, transparent), transparent), radial-gradient(circle 520px at 12% 46%, color-mix(in srgb, var(--green) 12%, transparent), transparent); -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent); }
+.intro { grid-column: 1; grid-row: 1; padding-bottom: clamp(72px, 8vw, 112px); }
+.intro h1 { font: 650 clamp(2.5rem, 5vw, 5.5rem)/1.02 var(--font-display); letter-spacing: -.035em; margin: 22px 0 20px; text-wrap: balance; }
+.intro h1 span:not(.pill-visual) { font-weight: 450; }
+.intro p { font-size: 16px; max-width: 46ch; line-height: 1.65; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+.pill-visual { display: inline-grid; place-items: center; vertical-align: middle; width: clamp(58px, 6vw, 104px); height: clamp(34px, 3.3vw, 58px); margin: 0 .1em; border-radius: 999px; box-shadow: inset 0 1px 0 rgb(255 255 255 / .35); }
+.intro h1 .pill-visual { color: var(--on-accent); background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--green))); }
+.intro h1 .pill-radar { color: #fff; background: linear-gradient(135deg, var(--orange), color-mix(in srgb, var(--orange) 55%, var(--red))); }
+html[data-theme=dark] .intro h1 .pill-visual { color: var(--on-accent); }
+html[data-theme=dark] .intro h1 .pill-radar { color: #0d1b21; }
+.intro h1 .pill-visual::before { content: none !important; }
+
+.hero-art { grid-column: 2; grid-row: 1; position: relative; align-self: stretch; display: grid; place-items: center; min-height: 300px; overflow: hidden; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent); mask-image: radial-gradient(closest-side, #000 72%, transparent); }
+.orbit { position: absolute; aspect-ratio: 1; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent); }
+.orbit-a { width: clamp(250px, 30vw, 440px); }
+.orbit-b { width: clamp(330px, 40vw, 600px); border-style: dashed; opacity: .6; }
+.orb { position: relative; z-index: 1; display: grid; place-items: center; width: clamp(190px, 23vw, 340px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 30% 24%, #24505a, #0e2a33 70%); box-shadow: 0 40px 60px -34px color-mix(in srgb, var(--accent) 55%, transparent), inset 0 1px 0 rgb(255 255 255 / .18); animation: orb-float 9s ease-in-out infinite; }
+.orb img { width: 86%; height: auto; }
+@keyframes orb-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+
+/* ---------- KPI en acordeón ---------- */
+.kpis { grid-column: 1 / -1; grid-row: 2; position: relative; z-index: 2; display: flex; gap: 14px; margin-top: calc(clamp(72px, 8vw, 112px) * -.55); }
+.kpis>div { flex: 1 1 0; min-width: 0; min-height: 0; justify-content: flex-start; transition: flex-grow .6s var(--ease-out), transform .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+.kpis>div>.kpi-detail { display: block; margin-top: 12px; max-width: 36ch; font-size: 12px; line-height: 1.55; color: var(--muted); }
+.kpis>div:nth-child(3)>.kpi-detail { color: #c9e5cf; }
+html[data-theme=dark] .kpis>div>.kpi-detail { color: #b9cec2; }
+@media (hover: hover) and (min-width: 1101px) {
+  .kpis>div:hover { flex-grow: 1.7; transform: translateY(-4px); box-shadow: 0 28px 44px -28px color-mix(in srgb, var(--accent) 45%, transparent); }
+}
+@media (max-width: 1100px) {
+  .kpis>div>.kpi-detail { position: absolute; width: 1px; height: 1px; margin: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+/* ---------- Ritmo entre secciones ---------- */
+.workspace-heading { margin-top: clamp(56px, 7vw, 96px); }
+.workspace-heading h2 { font-size: clamp(26px, 3vw, 40px); letter-spacing: -.03em; }
+.history-reports { margin-top: clamp(72px, 9vw, 128px); }
+
+/* ---------- Informes con columna fija (en pantallas anchas) ---------- */
+@media (min-width: 1180px) {
+  .reports-layout { display: grid; grid-template-columns: 310px minmax(0, 1fr); gap: 44px; align-items: start; }
+  .reports-aside { position: sticky; top: 112px; }
+  .reports-aside .reports-heading { display: block; }
+  .reports-aside .reports-heading h2 { font-size: clamp(30px, 2.6vw, 40px); }
+  .reports-aside .source-badge { display: inline-block; margin-top: 14px; }
+  .reports-aside .report-controls { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .reports-aside .report-controls button { justify-self: stretch; }
+}
+
+/* ---------- Marquesina de fuentes y cierre ---------- */
+.sources-marquee { margin-top: clamp(64px, 8vw, 112px); padding: 28px 0; border-block: 1px solid var(--line); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.marquee-track span { padding-right: 56px; font: 600 clamp(28px, 4vw, 52px)/1.1 var(--font-display); letter-spacing: -.02em; color: var(--muted); white-space: nowrap; }
+.sources-marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.closing { display: grid; justify-items: start; gap: 28px; padding: clamp(72px, 10vw, 140px) 0 clamp(40px, 6vw, 80px); }
+.closing h2 { max-width: 40ch; font: 650 clamp(1.75rem, 4vw, 3.5rem)/1.06 var(--font-display); letter-spacing: -.035em; text-wrap: balance; }
+.closing h2 span { color: var(--muted); font-weight: 450; }
+
+/* ---------- Entrada con scroll (solo CSS; el contenido siempre queda visible) ---------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .source-details, .closing .cta { animation: panel-enter linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+  }
+}
+
+/* ---------- Pantallas pequeñas ---------- */
+@media (max-width: 900px) {
+  .overview { grid-template-columns: 1fr; padding-top: clamp(36px, 8vw, 56px); }
+  .hero-art { display: none; }
+  .intro { padding-bottom: 40px; }
+  .kpis { margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .kpis { gap: 8px; }
+  .intro p { font-size: 15px; }
+  .hero-actions { gap: 10px; }
+  .cta { padding: 0 20px; }
+}
+
+@media (max-width: 380px) {
+  .intro h1 { font-size: 2.05rem; }
+  .pill-visual { width: 50px; height: 30px; }
+}
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+  .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; animation: none; }
+  .marquee-track span:nth-child(n+8) { display: none; }
+  .cta, .kpis>div { transition: none; }
+}
