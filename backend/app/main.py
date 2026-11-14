@@ -31,7 +31,7 @@ async def lifespan(app):
 app = FastAPI(title='Tunari Fire Monitor', version='1.0.0', lifespan=lifespan)
 settings = get_settings()
 app.add_middleware(CORSMiddleware, allow_origins=settings.cors_origins.split(','),
-                   allow_methods=['GET', 'PATCH', 'POST'], allow_headers=['Content-Type'])
+                   allow_methods=['GET', 'PATCH', 'POST'], allow_headers=['Content-Type', 'Authorization', 'X-API-Token'])
 for module in (detecciones, eventos, alertas, estadisticas, salud, monitoreo, informes):
     app.include_router(module.router, prefix='/api')
 app.add_api_route('/salud', salud.salud, methods=['GET'], tags=['sistema'])

@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import select
-from ..deps import get_db, Filtros, paginar
+from ..deps import get_db, require_token, Filtros, paginar
 from ...models import Alerta
 from ...schemas.alerta import AlertaOut, AlertaCambio
 
@@ -22,7 +22,7 @@ def listar(filtros: Filtros = Depends(), estado: Literal['nueva', 'en_revision',
     return paginar(db, query.order_by(Alerta.fecha.desc(), Alerta.id.desc()), AlertaOut, limit)
 
 
-@router.patch('/{alerta_id}', response_model=AlertaOut)
+@router.patch('/{alerta_id}', response_model=AlertaOut, dependencies=[Depends(require_token)])
 def actualizar(alerta_id: int, change: AlertaCambio, db=Depends(get_db)):
     alert = db.get(Alerta, alerta_id)
     if not alert:
@@ -32,7 +32,7 @@ def actualizar(alerta_id: int, change: AlertaCambio, db=Depends(get_db)):
     return alert
 
 
-@router.post('/{alerta_id}/confirmar', response_model=AlertaOut)
+@router.post('/{alerta_id}/confirmar', response_model=AlertaOut, dependencies=[Depends(require_token)])
 def confirmar(alerta_id: int, db=Depends(get_db)):
     alert = db.get(Alerta, alerta_id)
     if not alert:

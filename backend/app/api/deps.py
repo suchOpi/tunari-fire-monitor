@@ -1,6 +1,7 @@
+import hmac
 from datetime import date, datetime, time, timedelta
 from zoneinfo import ZoneInfo
-from fastapi import Depends, HTTPException, Query
+from fastapi import Depends, Header, HTTPException, Query
 from ..database import SessionLocal
 from ..config import get_settings
 
@@ -12,6 +13,17 @@ def get_db():
         raise HTTPException(503, 'PostGIS no está habilitado; el monitoreo NRT de lectura sigue disponible')
     with SessionLocal() as db:
         yield db
+
+
+def require_token(authorization: str | None = Header(default=None), x_api_token: str | None = Header(default=None)):
+    """Protege las rutas que modifican datos con un token de operador (API_TOKEN)."""
+    expected = get_settings().api_token.get_secret_value()
+    if not expected:
+        raise HTTPException(503, 'Escritura deshabilitada: configura API_TOKEN en el servidor')
+    bearer = authorization[7:] if authorization and authorization.lower().startswith('bearer ') else ''
+    supplied = x_api_token or bearer
+    if not hmac.compare_digest(supplied.encode(), expected.encode()):
+        raise HTTPException(401, 'Token de operador inválido o ausente', headers={'WWW-Authenticate': 'Bearer'})
 
 
 class Filtros:

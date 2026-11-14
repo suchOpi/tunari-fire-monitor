@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     notifications_enabled: bool = False
     telegram_bot_token: SecretStr = SecretStr('')
     telegram_chat_id: str = ''
+    api_token: SecretStr = SecretStr('')
     min_baseline_years: int = Field(default=5, ge=3)
 
 
