@@ -38,8 +38,10 @@ export function FiltrosProvider({ children }) {
     setSeleccion(null);
     setData(null);
     refrescar();
-    const timer = setInterval(refrescar, 60000);
-    return () => { revision.current++; clearInterval(timer); };
+    const refrescarVisible = () => { if (!document.hidden) refrescar(); };
+    const timer = setInterval(refrescarVisible, 60000);
+    document.addEventListener('visibilitychange', refrescarVisible);
+    return () => { revision.current++; clearInterval(timer); document.removeEventListener('visibilitychange', refrescarVisible); };
   }, [refrescar]);
   const value = useMemo(() => ({ filtros, setFiltros, capas, setCapas, mostrarDistritos, setMostrarDistritos, mostrarPNT, setMostrarPNT, geografia, errorGeografia, cargarGeografia, data, loading, error, refrescar, seleccion, setSeleccion }),
     [filtros, capas, mostrarDistritos, mostrarPNT, geografia, errorGeografia, cargarGeografia, data, loading, error, refrescar, seleccion]);
